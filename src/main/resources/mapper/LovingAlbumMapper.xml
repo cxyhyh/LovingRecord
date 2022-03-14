@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhxd.love.mapper.LovingAlbumMapper">
+
+    <!-- 基本resultMap -->
+    <resultMap type="com.zhxd.love.model.entity.LovingAlbum" id="LovingAlbum">
+        <id property="id" column="id"/>
+        <result property="albumName" column="album_name"/>
+        <result property="userId" column="user_id"/>
+        <result property="pictureNum" column="picture_num"/>
+        <result property="videoNum" column="video_num"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="remarks" column="remarks"/>
+        <result property="delFlag" column="del_flag"/>
+    </resultMap>
+    
+    <select id="getByName" resultType="com.zhxd.love.model.entity.LovingAlbum">
+        select * from loving_album where album_name like concat('%' , #{albumName} , '%');
+    </select>
+
+    <select id="getByUser" resultType="com.zhxd.love.model.entity.LovingAlbum">
+        select * from loving_album where user_id = #{userId};
+    </select>
+
+    <select id="getPictureAndVideoNUm" resultType="com.zhxd.love.model.entity.LovingAlbum">
+        select * from loving_album where album_name like concat('%' , #{Name} , '%');
+    </select>
+
+    <select id="getIdByName" resultType="Integer">
+        select id from loving_album where album_name like concat('%' , #{Name} , '%');
+    </select>
+
+    <select id="getNameById" resultType="String">
+        select album_name from loving_album where id = #{id};
+    </select>
+
+</mapper>
