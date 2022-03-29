@@ -22,4 +22,8 @@
         select * from loving_anniversaries where name = #{name}
     </select>
 
+    <select id="getAll" resultType="com.zhxd.love.model.entity.LovingAnniversaries">
+        select * from loving_anniversaries
+    </select>
+
 </mapper>

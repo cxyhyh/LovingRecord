@@ -39,6 +39,36 @@ public class LovingAnniversariesController {
     }
 
     /**
+     * 编辑纪念日
+     *
+     * @param  lovingAnniversaries
+     * @return
+     */
+    @PostMapping("/editAnniversaries")
+    public Result editAnniversaries(@Valid @RequestBody LovingAnniversaries lovingAnniversaries) {
+        boolean flag = false;
+        List<LovingAnniversaries> list =  lovingAnniversariesService.getByName(lovingAnniversaries.getName());
+        if (list.size()>1){
+            return Result.fail(400,"纪念日名称已存在！");
+        }else {
+            flag = lovingAnniversariesService.updateById(lovingAnniversaries);
+            if (flag) {return Result.success(200,"修改成功");}
+            else return Result.fail(400,"保存失败");}
+
+    }
+
+    /**
+     * 查询所有纪念日
+     *
+     * @param
+     * @return
+     */
+    @GetMapping("/getLovingAnniversaries")
+    public Result getLovingAnniversaries() {
+        return Result.success(lovingAnniversariesService.getAll());
+    }
+
+    /**
      * 通过ID查询信息
      *
      * @param id ID
@@ -72,13 +102,13 @@ public class LovingAnniversariesController {
     }
 
     /**
-     * 删除
+     * 删除纪念日
      *
      * @param id   ID
      * @return R
      */
-    @DeleteMapping("/{id}")
-    public Result delete(@PathVariable Integer id) {
+    @GetMapping("/delete")
+    public Result delete(Integer id) {
         return Result.success(lovingAnniversariesService.removeById(id));
     }
 

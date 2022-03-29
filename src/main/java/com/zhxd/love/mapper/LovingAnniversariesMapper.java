@@ -12,4 +12,6 @@ import java.util.List;
 public interface LovingAnniversariesMapper extends BaseMapper<LovingAnniversaries> {
 
     List<LovingAnniversaries> getByName(String name);
+
+    List<LovingAnniversaries> getAll();
 }

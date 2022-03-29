@@ -14,4 +14,6 @@ public interface LovingAnniversariesService extends IService<LovingAnniversaries
     boolean saveAnniversaries(LovingAnniversaries lovingAnniversaries);
 
     List<LovingAnniversaries> getByName(String name);
+
+    List<LovingAnniversaries> getAll();
 }
