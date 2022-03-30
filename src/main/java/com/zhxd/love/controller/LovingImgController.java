@@ -63,7 +63,7 @@ public class LovingImgController {
         Long startTs = System.currentTimeMillis(); // 当前时间戳
         for (int i = 0;i<file.length;i++){
             String fileName = startTs+"_" + file[i].getOriginalFilename();
-            File upload_file = new File(fileDir + File.separator + fileName);
+            File upload_file = new File(fileDir + fileName);
             file[i].transferTo(upload_file);
             LovingImg lovingImg = new LovingImg();
             lovingImg.setImgUrl(fileName);

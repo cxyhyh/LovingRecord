@@ -31,7 +31,7 @@ public class LovingAnniversariesBackgroundServiceImpl extends ServiceImpl<Loving
         List<LovingAnniversariesBackground> backgroundList = this.baseMapper.getList();
         for (LovingAnniversariesBackground b:backgroundList) {
             if (!b.getUrl().contains("http")){
-                String path = filePath +  File.separator + b.getUrl();
+                String path = filePath + b.getUrl();
                 String url = getImageStr(path);
                 b.setUrl(url);
             }

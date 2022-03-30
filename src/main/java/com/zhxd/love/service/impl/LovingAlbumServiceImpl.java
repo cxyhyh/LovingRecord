@@ -45,7 +45,7 @@ public class LovingAlbumServiceImpl extends ServiceImpl<LovingAlbumMapper, Lovin
         String filePath =  Constant.fileDir;
         for (LovingAlbum lovingAlbum:lovingAlbumList) {
             if (!lovingAlbum.getImgFirst().contains("http")){
-                String path = filePath +  File.separator + lovingAlbum.getImgFirst();
+                String path = filePath + lovingAlbum.getImgFirst();
                 String url = PictureUtils.getImageStr(path);
                 lovingAlbum.setImgFirst(url);
             }

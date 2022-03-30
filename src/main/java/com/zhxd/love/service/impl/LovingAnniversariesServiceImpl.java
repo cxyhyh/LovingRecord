@@ -45,12 +45,12 @@ public class LovingAnniversariesServiceImpl extends ServiceImpl<LovingAnniversar
         String filePath =  Constant.fileDir;
         for (LovingAnniversaries lovingAnniversaries:lovingAnniversariesList) {
             if (!lovingAnniversaries.getIconUrl().contains("http")){
-                String path = filePath +  File.separator + lovingAnniversaries.getIconUrl();
+                String path = filePath  + lovingAnniversaries.getIconUrl();
                 String url = PictureUtils.getImageStr(path);
                 lovingAnniversaries.setIconUrl(url);
             }
             if (!lovingAnniversaries.getBackgroundUrl().contains("http")){
-                String path = filePath +  File.separator + lovingAnniversaries.getBackgroundUrl();
+                String path = filePath  + lovingAnniversaries.getBackgroundUrl();
                 String url = PictureUtils.getImageStr(path);
                 lovingAnniversaries.setBackgroundUrl(url);
             }
